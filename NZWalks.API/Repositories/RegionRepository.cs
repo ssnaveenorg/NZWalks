@@ -47,7 +47,7 @@ namespace NZWalks.API.Repositories
         {
             var existingRegion = await nZWalksDBContext.Regions.FirstOrDefaultAsync(x => x.Id == Id);
 
-            if (existingRegion == null) 
+            if (existingRegion == null)
             {
                 return null;
             }
