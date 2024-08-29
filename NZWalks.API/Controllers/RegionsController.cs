@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 using NZWalks.API.Models.Domain;
@@ -67,6 +68,7 @@ namespace NZWalks.API.Controllers
         }
 
         [HttpPost]
+        [Authorize]
         public async Task<IActionResult> AddRegionAsync(AddRegionRequest addRegionRequest)
         {
 
@@ -108,6 +110,7 @@ namespace NZWalks.API.Controllers
 
         [HttpDelete]
         [Route("{Id:guid}")]
+        [Authorize]
         public async Task<IActionResult> DeleteRegionByIdAsync(Guid Id)
         {
             //Get region for DB
@@ -128,6 +131,7 @@ namespace NZWalks.API.Controllers
 
         [HttpPut]
         [Route("{Id:guid}")]
+        [Authorize]
         public async Task<IActionResult> UpdateRegionAsync([FromRoute] Guid Id, [FromBody] UpdateRegionRequest updateRegionRequest)
         {
             //if (!ValidateUpdateRegionAsync(updateRegionRequest))
